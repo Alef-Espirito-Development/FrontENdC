@@ -62,7 +62,7 @@ const CadastroAbastecimento = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem('token'); 
-      const response = await axios.get('http://localhost:3000/api/abastecimentos', {
+      const response = await axios.get('https://back-end-c-2knx.vercel.app/api/abastecimentos', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAbastecimentos(response.data);
@@ -111,13 +111,13 @@ const CadastroAbastecimento = () => {
       };
 
       if (isEditing) {
-        await axios.put(`http://localhost:3000/api/abastecimentos/${currentAbastecimento.id}`, 
+        await axios.put(`https://back-end-c-2knx.vercel.app/api/abastecimentos/${currentAbastecimento.id}`, 
           novoAbastecimento, 
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setSnackbarMessage('Abastecimento atualizado com sucesso!');
       } else {
-        await axios.post('http://localhost:3000/api/abastecimentos', 
+        await axios.post('https://back-end-c-2knx.vercel.app/api/abastecimentos', 
           novoAbastecimento, 
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -160,7 +160,7 @@ const CadastroAbastecimento = () => {
     setLoading(true);
     const token = localStorage.getItem('token');
     try {
-      await axios.delete(`http://localhost:3000/api/abastecimentos/${currentAbastecimento}`, {
+      await axios.delete(`https://back-end-c-2knx.vercel.app/api/abastecimentos/${currentAbastecimento}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSnackbarMessage('Abastecimento excluído com sucesso!');

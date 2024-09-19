@@ -59,7 +59,7 @@ const CadastroPessoas = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:3000/api/pessoas', {
+      const response = await axios.get('https://back-end-c-2knx.vercel.app/api/pessoas', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setPeople(response.data);
@@ -94,7 +94,7 @@ const CadastroPessoas = () => {
     try {
       const token = localStorage.getItem('token');
       if (editMode) {
-        await axios.put(`http://localhost:3000/api/pessoas/${currentId}`, {
+        await axios.put(`https://back-end-c-2knx.vercel.app/api/pessoas/${currentId}`, {
           nome,
           cpf,
           valorRecebido,
@@ -106,7 +106,7 @@ const CadastroPessoas = () => {
         });
         setSuccessMessage('Pessoa atualizada com sucesso!');
       } else {
-        await axios.post('http://localhost:3000/api/pessoas', {
+        await axios.post('https://back-end-c-2knx.vercel.app/api/pessoas', {
           nome,
           cpf,
           valorRecebido,
@@ -162,7 +162,7 @@ const CadastroPessoas = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:3000/api/pessoas/${currentId}`, {
+      await axios.delete(`https://back-end-c-2knx.vercel.app/api/pessoas/${currentId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSuccessMessage('Pessoa excluída com sucesso!');
